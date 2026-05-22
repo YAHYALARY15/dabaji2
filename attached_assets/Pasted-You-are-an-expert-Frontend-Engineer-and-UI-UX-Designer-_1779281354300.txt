@@ -1,0 +1,96 @@
+You are an expert Frontend Engineer and UI/UX Designer. I need you to build a premium, fully-functional Single Page Application (SPA) Mobile-First Web App. The project is a multi-vendor delivery platform inspired by the structure of "Fantastic" but customized with a unique, high-end design and highly advanced developer controls.
+
+---
+🎯 TECHNICAL STACK & VISUAL IDENTITY
+- Architecture: Single file `index.html` combining HTML5, Tailwind CSS (via CDN), and Pure Vanilla JavaScript.
+- Design System: Pure Mobile-First Viewport. Premium Dark Mode. 
+  * Backgrounds: Deep Dark Velvet (#121212, #181818).
+  * Accents & Highlights: Electric Yellow (#FFD700) for primary buttons, active tabs, and prices.
+  * Secondary Actions: Crimson Red for specific checkout triggers.
+  * Typography: Clean, high-contrast white and muted silver text.
+
+---
+🗂️ STRUCTURE COMPONENT BY COMPONENT
+
+1. DYNAMIC HEADER & FEED
+   - Header: Live tracking indicator fetching the user's city via Geolocation API, alongside a modern search utility.
+   - Dynamic Layout Grid: A custom section showing category widgets (Restaurants, Parapharmacie, Supermarché, Boulangerie, Cafés, etc.) topped with a badge saying "Livraison Rapide / توصيل سريع". 
+   - Store Feed Selector: Clicking any category circle smoothly filters out other elements to render a grid of matching stores. Each card includes: Store name, Base64 gallery logo, real-time simulated delivery timer (e.g., 20-30 min), dynamic distance badge, and a Star Rating system.
+
+2. STICKY PENTAGONAL NAVIGATION (شريط التنقل السفلي الخماسي الثابت)
+   Fixed precisely at the bottom viewport with exactly 5 touch-optimized views:
+   - View 1: Main Feed (القائمة الكلية) - To browse stores and categories.
+   - View 2: Favourites (المعجبات) - Displays items/stores liked by the user.
+   - View 3: Shopping Cart (سلة التسوق) - Reactive cart with subtotal, distance-bracket delivery fee, and grand total.
+   - View 4: Account Hub (الحساب الخاص بي) - Contains user profile, Partner Registration form, and hidden backdoor to Admin Mode.
+   - View 5: Instant WhatsApp Channel (زر الدعم المباشر) - Direct link to main customer support.
+
+3. ADVANCED PRODUCT MODAL & UPSELL EXTRAS
+   - Clicking a product opens an immersive modal overlay:
+     * Full-width product hero image (uploaded via local file).
+     * Title, classification tag, and precise description.
+     * "Choisissez votre sauce / الإضافات": Interactive list checklist where vendors assign positive cost values to extras (e.g., Extra Cheese +5.00 DH, Special Sauce +3.00 DH). Selecting options triggers an immediate real-time computation of the item price.
+     * Quantity Selector: Stepper component (+) and (-) updating the product total.
+     * High-visibility "Add to Cart" button.
+
+4. AUTOMATED WHATSAPP TRADING ENGINE
+   - Inside the Cart, clicking "Confirm Order" dynamically fetches the specific vendor's registered phone number or falls back to the master configuration number: 0771175565.
+   - It builds an structured WhatsApp API URL text payload exactly formatted as follows:
+     * اسم المطعم / Nom du Restaurant: [Dynamic Name]
+     * المنتجات المطلوبة / Produits Commandés: [Product Title x Qty - Selected Options & Prices]
+     * ثمن الطلبات / Prix des produits: [Subtotal] DH
+     * ثمن التوصيل / Frais de livraison: [Bracket-Calculated Delivery Fee] DH
+     * الثمن الإجمالي الكلي / Total Global: [Grand Total] DH
+     * موقع الزبون / Localisation Client: [Google Maps Pin URL using current client Lat/Lng coordinates]
+
+5. COMPREHENSIVE VENDOR PORTAL (تسجيل المحلات من الهاتف)
+   - Located in the Account Hub: "Partner Registration". Allows vendors to deploy their storefront instantly.
+   - Features a File Reader (`<input type="file">`) to upload logos and product pictures directly from device memory, converting images into Base64 URLs stored natively within LocalStorage.
+   - Includes a native analytics handler that increments a `store_views` counter by 1 every time a client navigates into that specific vendor's menu.
+
+6. FORTIFIED DEVELOPER ENGINE (وضع المطور السري المتقدم والكامل)
+   - Activation Backdoor: Rapidly clicking 5 times on the page title within the Account View triggers a secure password modal.
+   - Secret Password: Must accept exactly "DabaJib.2026" or "dabajib.2026" written in Latin characters.
+   - Admin Controls Checklist:
+     * Analytics Panels: Display total platforms orders and net delivery profits segmented explicitly into two views: Last 7 Days (كل 7 أيام) and Monthly (كل شهر). Plus a weekly live visitor counter dashboard.
+     * Store Registry Inspector: A full data table of all registered stores with active view counters, contact lines, and an "Edit / تعديل" panel to alter vendor details alongside a "Delete / حذف" option to wipe the vendor from LocalStorage.
+     * Master Config: Direct text inputs to instantly update the global backup WhatsApp number and the Developer Access Password itself.
+     * Advanced Distance Bracket Billing (نظام شرائح المسافة): Admin module to configure custom pricing tiers dynamically. The distance is computed via the Haversine equation. The admin can append custom intervals via an "Add Tier" utility (e.g., 0 to 2 km = X DH, 2 to 4 km = Y DH, 8 to 10 km = Z DH).
+     * System Purge: A prominent "Wipe All Data" button to clear LocalStorage and reset the platform environment instantly.
+     * UI Layout Engine: A drag-and-drop or control panel setting allowing the admin to dynamically change the order of components on the home page (e.g., swap position of category circles and featured stores, or toggle visibility of layout blocks).
+
+---
+💻 CODE GENERATION REQUIREMENTS
+Deliver the complete source code inside a single `index.html` block. Avoid any placeholders, stubs, or truncated JavaScript modules. Ensure all LocalStorage bindings, state navigation switches between the 5 view tabs, distance calculations, data entry forms, and reactive state updates are completely integrated, bug-free, and operational.
+
+```You are an expert Frontend Engineer. I have an existing code for a mobile-first delivery application, and I need you to completely update, rewrite, and inject new modular components into my current code. Do not write the whole app from scratch, just provide the updated HTML, CSS (Tailwind), and JavaScript logic that I can easily integrate or swap in my code.
+
+Please implement all the following updates simultaneously, ensuring they are fully functional and properly tied to LocalStorage:
+
+---
+1. HEADER & UI LAYOUT UPDATES (تحديث واجهة المستخدم ومكان زر الإعدادات)
+- [FR] Déplacer l'icône de configuration: Relocate the "Settings / Admin Control" icon to the TOP RIGHT of the screen (أعلى يمين الشاشة) inside the main header, instead of any other location.
+- [FR] Catégories sans images (أشكال هندسية وأيقونات فقط): In the horizontal category scroll bar (Restaurants, Parapharmacie, Boulangerie, etc.), remove images entirely. Replace them with clean geometric circles, customized CSS background colors that match the Black & Yellow theme, and high-quality premium vector icons (like FontAwesome or Lucide icons) representing each service (e.g., a food icon for restaurants, a pill icon for pharmacy).
+
+---
+2. REFINED VENDOR PORTAL & UPSELL EXTRAS (نظام المحلات المطور والإضافات المدفوعة)
+- [FR] Upload d'images natives: Update the "Partner/Store Registration" form. When a store owner adds a product or their store logo, they must be able to upload files directly from their phone storage using `<input type="file">`. Use JavaScript (FileReader) to convert these images into Base64 URLs so they save perfectly in LocalStorage and display instantly to customers.
+- [FR] Options et Suppléments Payants: In the vendor product creation form, add fields allowing merchants to insert "Custom Paid Extras/Sauces" with individual prices in Dirhams (e.g., Extra Cheese -> +5.00 DH, Special Sauce -> +3.00 DH).
+- [FR] Calcul Dynamique dans le Modal: When a customer opens the product pop-up modal, these extras must render as an interactive checklist (Checkboxes). Clicking any paid option must instantly update the total product price at the bottom, multiplied dynamically by the counter stepper (+) and (-) quantity buttons before clicking "Add to Cart".
+
+---
+3. ADVANCED DEVELOPER CONTROLS & DISTANCE BRACKETS (وضع المطور السري المتقدم وشرائح التوصيل)
+- [FR] Mot de passe en lettres françaises: The secret backdoor activation to access Developer Mode (triggered by clicking 5 times on the top-right settings icon) must strictly validate the password in French letters and numbers: "DabaJib.2026" or "dabajib.2026".
+- [FR] Inject the following panels inside the unlocked Developer Dashboard:
+  * Advanced Analytics Panel: Display total orders and cumulative delivery earnings filtered explicitly into two views: Last 7 Days (إحصائيات آخر 7 أيام) and Monthly (إحصائيات كل شهر), alongside a live weekly visitor counter.
+  * Store Registry Manager: A comprehensive management table showing all active vendors, their registered phone numbers, and their live views counter (which increments by 1 every time a client opens that store). Include an "Edit / تعديل" button to alter vendor data and a "Delete / حذف" button to completely wipe that vendor from LocalStorage.
+  * System Configuration Inputs: Direct fields to dynamically change the Global support WhatsApp destination number and the Developer Secret Password itself.
+  * Distance Bracket Billing (نظام شرائح المسافة لتحديد ثمن التوصيل): Replace any flat rate with a dynamic tier management console. The distance is computed via the Haversine equation. The developer can dynamically define intervals and pricing brackets. Examples:
+    - Distance from 0 to 2 km = [X] DH
+    - Distance from 2 to 4 km = [Y] DH
+    - Distance from 8 to 10 km = [Z] DH
+    Include an "Add New Tier" button to append custom intervals dynamically, which the shopping cart will immediately use to calculate the dynamic delivery fee.
+  * System Purge: A prominent red button labeled "Wipe All Data / حذف كل المعلومات" to completely clear LocalStorage and reset the platform environment instantly.
+  * UI Layout Customizer: A basic control interface allowing the developer to re-order components on the homepage (e.g., swapping or hiding blocks like category circles or featured stores).
+
+Please output clean, highly organized JavaScript functions, updated HTML structures, and responsive Tailwind layouts that directly address these features, making them ready to be integrated into my active script. no make me when i put my store in the site i can add produits his photo and description the price the stars and suplement payants and put this logo for the site and add photo to categories (tous,restaurants,.....)  and add the deference about me and the magasin with km make me when enter with email and put my email in my account i found my store and i can edite it and add produict or remove it and put localisation and change the name of the website to dabaji and make make the user use gps and se google map and see how matche is between the user and the magasin and use the price and say and type it in the magasin the price of levrison and the km
